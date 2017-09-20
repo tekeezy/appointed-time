@@ -30,7 +30,7 @@
     <div style="font-size: 48px;">지각까지 남은 시간</div>
     <div style="padding: 24px 0; font-size: 128px;" id="time"></div>
     <div style="padding: 64px 0;">
-      <a href="./step-4.html" class="button-style">도착했어요!</a>
+      <a href="./step-4.html" class="button-style" id="next">도착했어요!</a>
     </div>
 
     <!-- Optional JavaScript -->
@@ -41,6 +41,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
     <script>
+    $("#next").click(function() {
+      localStorage.setItem("checked_time", "1");
+    });
+
     (function() {
       var appointTime = new Date(new Date().getTime() + 999*5);
 
