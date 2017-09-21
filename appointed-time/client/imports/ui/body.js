@@ -1,14 +1,10 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
-import './accounts-config.js';
+
+import './body.html';
 
 
-Template.after.helpers({
-  friends : function() {
-    return Meteor.users.find({});
-  }
-});
 
 
 
