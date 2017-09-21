@@ -21,8 +21,8 @@ const UserRoutes = FlowRouter.group({
 
     if ( ! Meteor.loggingIn() && ! Meteor.user()) {
       console.log('router.js: FlowRouter.group UserRoutes: FlowRouter.go(\'/\')');
-      //FlowRouter.go('/');
       redirect('/');
+      //FlowRouter.go('/');
       //stop();
     }
   }]
