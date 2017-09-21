@@ -13,12 +13,14 @@ Template.after.helpers({
 Template.after.events({
   "submit form": function (event) {
     event.preventDefault();
-    location.href="/333"
-    //
-    // var bitcoin = event.target.text.value;
-    // var address = event.target.address.value;
-    // // var friendAddress = '';
-    // Meteor.call("temp", temp);
+
+    console.log(event.target);
+    var temp="";
+    //var bitcoin = event.target.text.value;
+    //var address = event.target.address.value;
+    // var friendAddress = '';
+    Meteor.call("test", temp);
+    location.href="../public/js/step-3.html"
  },
 })
 
