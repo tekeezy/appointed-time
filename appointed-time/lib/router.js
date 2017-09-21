@@ -1,10 +1,12 @@
+import { Accounts } from 'meteor/accounts-base';
+
 Accounts.onLogin(function() {
   FlowRouter.go('/clients');
 });
+
 Accounts.onLogout(function() {
   FlowRouter.go('/');
 });
-
 
 FlowRouter.route('/', {
   triggersEnter: [function(context, redirect) {
