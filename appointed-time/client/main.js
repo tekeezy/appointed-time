@@ -23,7 +23,6 @@ Template.after.events({
 })
 
 
-//
 // Template.hello.helpers({
 //   counter() {
 //     return Template.instance().counter.get();
