@@ -52,40 +52,40 @@ FlowRouter.route('/', {
 
 UserRoutes.route('/clients', {
   action: function () {
-    console.log("router.js: FlowRouter.route /clients: action");
-    console.log("router.js: FlowRouter.route /clients: User: " + Meteor.user());
+    console.log("router.js: UserRoutes.route /clients: action");
+    console.log("router.js: UserRoutes.route /clients: User: " + Meteor.user());
     BlazeLayout.render('after');
   }
 });
 
 UserRoutes.route('/step-1', {
   action: function () {
-    console.log("router.js: FlowRouter.route /step-1: action");
-    console.log("router.js: FlowRouter.route /step-1: User: " + Meteor.user());
+    console.log("router.js: UserRoutes.route /step-1: action");
+    console.log("router.js: UserRoutes.route /step-1: User: " + Meteor.user());
     BlazeLayout.render('step-1');
   }
 });
 
 UserRoutes.route('/step-2', {
   action: function () {
-    console.log("router.js: FlowRouter.route /step-2: action");
-    console.log("router.js: FlowRouter.route /step-2: User: " + Meteor.user());
+    console.log("router.js: UserRoutes.route /step-2: action");
+    console.log("router.js: UserRoutes.route /step-2: User: " + Meteor.user());
     BlazeLayout.render('step-2');
   }
 });
 
 UserRoutes.route('/step-3', {
   action: function () {
-    console.log("router.js: FlowRouter.route /step-3: action");
-    console.log("router.js: FlowRouter.route /step-3: User: " + Meteor.user());
+    console.log("router.js: UserRoutes.route /step-3: action");
+    console.log("router.js: UserRoutes.route /step-3: User: " + Meteor.user());
     BlazeLayout.render('step-3');
   }
 });
 
 UserRoutes.route('/step-4', {
   action: function () {
-    console.log("router.js: FlowRouter.route /step-4: action");
-    console.log("router.js: FlowRouter.route /step-4: User: " + Meteor.user());
+    console.log("router.js: UserRoutes.route /step-4: action");
+    console.log("router.js: UserRoutes.route /step-4: User: " + Meteor.user());
     BlazeLayout.render('step-4');
   }
 });
