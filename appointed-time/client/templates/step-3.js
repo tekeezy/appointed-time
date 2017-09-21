@@ -5,7 +5,7 @@ import { ReactiveVar } from 'meteor/reactive-var';
 Template['step-3'].onCreated(() => {
   console.log("Template['step-3'].onCreated");
 
-  this.time = new ReactiveVar(0);
+  this.time = new ReactiveVar();
   this.appointTime = new Date(new Date().getTime() + 999*60*17);
   Template['step-3'].timeTicker();
 });
