@@ -14,15 +14,16 @@ Accounts.onLogout(function() {
 
 // 라우터 그룹
 const UserRoutes = FlowRouter.group({
-  triggersEnter: [function(context, redirect) {
+  triggersEnter: [function(context, redirect, stop) {
     console.log('router.js: FlowRouter.group UserRoutes: triggersEnter');
     console.log("router.js: FlowRouter.group UserRoutes: Meteor.loggingIn: " + Meteor.loggingIn());
     console.log("router.js: FlowRouter.group UserRoutes: Meteor.user: " + Meteor.user());
 
     if ( ! Meteor.loggingIn() && ! Meteor.user()) {
       console.log('router.js: FlowRouter.group UserRoutes: FlowRouter.go(\'/\')');
-      FlowRouter.go('/');
-      return;
+      //FlowRouter.go('/');
+      redirect('/');
+      //stop();
     }
   }]
 });
