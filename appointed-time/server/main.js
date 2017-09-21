@@ -6,8 +6,12 @@ Meteor.startup(() => {
 });
 
 Meteor.methods( {
-  test: function(aaa, bbb) {
-    console.log('aaa: ' + f_ddress);
-    console.log('bbb: ' + balance);
+  register: function(param) {
+    console.log(param);
+    //console.log('time: ' + param.time);
+    console.log("테스트 : "+param.member.length);
+
+
+
   },
 })

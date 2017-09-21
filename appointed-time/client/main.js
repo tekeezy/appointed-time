@@ -14,13 +14,26 @@ Template.after.events({
   "submit form": function (event) {
     event.preventDefault();
 
-    console.log(event.target);
-    var temp="";
-    //var bitcoin = event.target.text.value;
-    //var address = event.target.address.value;
-    // var friendAddress = '';
-    Meteor.call("test", temp);
-    location.href="../public/js/step-3.html"
+    var time= event.target.regTime.value;
+    var member = event.target.regMember;
+    var members = [];
+
+    var idx=0;
+    for(var i=0; i<member.length; i++) {
+      if(member[i].checked) {
+        members[idx++] = member[i].value;
+      }
+    }
+
+    var param = {
+      time: time,
+      member:members
+    };
+
+    Meteor.call("register", param, function(e, r){
+
+    });
+    location.href="/step-3"
  },
 })
 
