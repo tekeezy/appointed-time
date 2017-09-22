@@ -43,7 +43,7 @@ FlowRouter.route('/', {
     // 로그인하면 실행
     Accounts.onLogin(function() {
       console.log("router.js: FlowRouter.route /: Accounts.onLogin");
-      FlowRouter.go('/clients');
+      FlowRouter.go('/step-1');
       //FlowRouter.go('/step-1');
     });
 
@@ -71,7 +71,7 @@ UserRoutes.route('/step-2', {
   action: function () {
     console.log("router.js: UserRoutes.route /step-2: action");
     console.log("router.js: UserRoutes.route /step-2: User: " + Meteor.user());
-    BlazeLayout.render('step-2');
+    BlazeLayout.render('step2');
   }
 });
 

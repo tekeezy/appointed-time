@@ -1,16 +1,30 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
+import { Groups } from '../../../imports/collections.js'
+
+
 
 Template['step-3'].onCreated(() => {
   console.log("Template['step-3'].onCreated");
-
+  Meteor.subscribe('groups', groupCB);
   this.time = new ReactiveVar();
-  this.appointTime = new Date(new Date().getTime() + 999*60*17);
-  Template['step-3'].timeTicker();
+
+  //console.log(Groups.findOne({'member.member_id':Meteor.userId()}));
+  // console.log(Meteor.groups.findOne(member.member_id:Meteor.user().username ));
+  //this.appointTime = new Date(new Date().getTime() + 999*60*17);
 });
 
-Template['step-3'].timeTicker = () => {
+function groupCB() {
+  let appointTime = new Date(Groups.findOne({'member.member_id':Meteor.userId()}).targetTime);
+  Template['step-3'].timeTicker(appointTime);
+
+  // var cursor = Groups.find({});
+  // cursor.forEach(function(elem){
+  //   console.log(elem.targetTime);
+  // })
+}
+Template['step-3'].timeTicker = (appointTime) => {
     let timeTicker = function() {
       let date = new Date();
       let distance = appointTime.getTime() - date.getTime();
@@ -37,7 +51,17 @@ Template['step-3'].timeTicker = () => {
 }
 
 Template['step-3'].helpers({
-  time: () => {
+
+  time() {
+
     return time.get();
   }
+});
+Template['step-3'].events({
+    "submit form": function (event) {
+      Meteor.call("arrival", Meteor.userId(), new Date(), function(e, r){
+
+      });
+      location.href="/step-3";
+    }
 });

@@ -24,10 +24,13 @@
   </body>
 </template>
 
-<template name="after">
+<template name="step2">
        {{> loginButtons}}
     <body>
       <form class="regist">
+        <div>
+          모임 이름 <input type="text" name="title"/>
+        </div>
         <table>
           <thead>
             <td>이름</td><td>계좌</td><td></td>
@@ -37,7 +40,7 @@
             <tr>
               <td>{{username}}</td>
               <td>계좌번호</td>
-              <td><input type="checkbox" name="regMember" value="{{username}}"/></td>
+              <td><input type="checkbox" name="regMember" value="{{_id}}"/></td>
             </tr>
             {{/each}}
           </tbody>

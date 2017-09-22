@@ -3,29 +3,41 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import './accounts-config.js';
 
+// Groups = new Mongo.Collection('groups');
+//
+// Meteor.subscribe('groups');
 
-Template.after.helpers({
+Template.step2.helpers({
   friends : function() {
     return Meteor.users.find({ "_id": { $ne: Meteor.user()._id}});
   }
 });
 
-Template.after.events({
+Template.step2.events({
   "submit form": function (event) {
     event.preventDefault();
 
+
+    var title= event.target.title.value;
     var time= event.target.regTime.value;
     var member = event.target.regMember;
-    var members = [];
-
+    var members = new Array();
     var idx=0;
+    var temp = new Object();
+    temp.member_id=Meteor.userId(),
+    temp.attendance=false;
+    members.push(temp);
     for(var i=0; i<member.length; i++) {
       if(member[i].checked) {
-        members[idx++] = member[i].value;
+        var aJson = new Object();
+        aJson.member_id = member[i].value;
+        aJson.attendance = false;
+        members.push(aJson);
       }
     }
 
     var param = {
+      title:title,
       time: time,
       member:members
     };
