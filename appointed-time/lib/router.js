@@ -90,6 +90,11 @@ UserRoutes.route('/step-4', {
     BlazeLayout.render('step-4');
   }
 });
+FlowRouter.route('/333', {
+    action: function () {
+        BlazeLayout.render('333');
+    }
+});
 
 // FlowRouter.route('/', {
 //     action: function () {
