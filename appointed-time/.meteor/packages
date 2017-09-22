@@ -27,7 +27,4 @@ google-config-ui
 kadira:flow-router
 kadira:blaze-layout
 practicalmeteor:mocha
-sanjo:jasmine
-velocity:html-reporter
-velocity:console-reporter
 autopublish
