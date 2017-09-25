@@ -15,12 +15,12 @@ Meteor.methods( {
     });
   },
 
-  arrival: function(_id, date) {
+  arrival: function(_id, date, gid) {
     // Tasks.update(this._id, {
     //   $set: { checked: ! this.checked },
     // });
     Groups.update(
-      {"member.member_id":_id},
+      {"_id":gid, "member.member_id":_id},
       {$set:{"member.$.arrival":date.toLocaleString(), "member.$.attendance": true}})
   },
 });

@@ -1,12 +1,13 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Groups } from '../../../imports/collections.js';
+import { Session } from 'meteor/session'
+
 Template["step-4"].helpers({
   results : function() {
-    //console.log("test1 " + Meteor.users.find());
-
-    //console.log("test44    " + Meteor.userId());
-    var groups = Groups.findOne({"member.member_id":Meteor.userId()});
+    var gid = Session.get('gid');
+    console.log(gid);
+    var groups = Groups.findOne({'_id':gid});
 
     var member = groups.member;
     var mem_id = new Array();
@@ -33,7 +34,6 @@ Template["step-4"].helpers({
         }
       })
       values.push(param);
-      console.log(param);
     });
 
 

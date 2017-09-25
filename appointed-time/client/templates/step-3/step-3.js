@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Groups } from '../../../imports/collections.js'
-
+import { Session } from 'meteor/session'
 
 
 Template['step-3'].onCreated(() => {
@@ -16,9 +16,12 @@ Template['step-3'].onCreated(() => {
 });
 
 function groupCB() {
-  let appointTime = new Date(Groups.findOne({'member.member_id':Meteor.userId()}).targetTime);
+  var gid = Session.get('gid');
+  let appointTime = new Date(Groups.findOne({'_id':gid}).targetTime);
+console.log("중");
+console.log(gid);
   Template['step-3'].timeTicker(appointTime);
-
+  console.log("후");
   // var cursor = Groups.find({});
   // cursor.forEach(function(elem){
   //   console.log(elem.targetTime);
@@ -59,9 +62,10 @@ Template['step-3'].helpers({
 });
 Template['step-3'].events({
     "submit form": function (event) {
-      Meteor.call("arrival", Meteor.userId(), new Date(), function(e, r){
-        location.href="/step-4";
-      });
+      var gid = Session.get('gid');
+      Meteor.call("arrival", Meteor.userId(), new Date(), gid, function(e, r){
 
+        location.href="/step-4/" +gid;
+      });
     }
 });

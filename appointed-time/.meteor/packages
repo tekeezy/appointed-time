@@ -27,3 +27,4 @@ service-configuration
 google-config-ui
 kadira:flow-router
 kadira:blaze-layout
+session

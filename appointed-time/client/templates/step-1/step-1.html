@@ -6,8 +6,11 @@
       <a href="./step-2" class="button-style">새로 등록</a>
     </div>
     {{#each list}}
-    <div>{{targetTime}}</div>
-    <div>{{groupName}}</div>
+    <div class="moim"  style="border:3px solid grey; cursor:pointer" onMouseOver="this.style.backgroundColor='#C3E7FA';" onMouseOut="this.style.backgroundColor=''">
+      <h2>{{targetTime}}</h2>
+      <h2>{{groupName}}</h2>
+    </div>
+    <div></div>
     {{/each}}
   </div>
 </template>

@@ -1,5 +1,6 @@
 import { Accounts } from 'meteor/accounts-base';
-
+import { Groups } from '../imports/collections.js'
+import { Session } from 'meteor/session'
 /*
 Accounts.onLogin(function() {
   FlowRouter.go('/clients');
@@ -75,30 +76,36 @@ UserRoutes.route('/step-2', {
   }
 });
 
-UserRoutes.route('/step-3', {
-  action: function () {
-    console.log("router.js: UserRoutes.route /step-3: action");
-    console.log("router.js: UserRoutes.route /step-3: User: " + Meteor.user());
-    BlazeLayout.render('step-3');
+UserRoutes.route('/step-3/:groupadd', {
+  action: function (params) {
+
+    var id = Meteor.userId();
+    var temp = params.groupadd
+    console.log(temp);
+
+    Meteor.subscribe('groups', () => {
+      var groups = Groups.findOne({"_id":temp});
+      Session.set('gid', params.groupadd);
+      var member = groups.member;
+      for(var i=0; i<member.length; i++) {
+        if(member[i].member_id == id && member[i].attendance == true) {
+          FlowRouter.go('/step-4/' +  params.groupadd);
+          console.log(member[i]);
+          return;
+        }
+      }
+      console.log("router.js: UserRoutes.route /step-3: action");
+      console.log("router.js: UserRoutes.route /step-3: User: " + Meteor.user());
+      BlazeLayout.render('step-3');
+    });
   }
 });
 
-UserRoutes.route('/step-4', {
-  action: function () {
+UserRoutes.route('/step-4/:groupadd', {
+  action: function (groupadd) {
+    Session.set('gid', groupadd.groupadd)
     console.log("router.js: UserRoutes.route /step-4: action");
     console.log("router.js: UserRoutes.route /step-4: User: " + Meteor.user());
     BlazeLayout.render('step-4');
   }
 });
-
-// FlowRouter.route('/', {
-//     action: function () {
-//       Tracker.autorun(function() {
-//         if(!Meteor.userId()) {
-//           FlowLayout.render("login");
-//         } else {
-//           FlowLayout.render("second");
-//         }
-//       })
-//     }
-// });

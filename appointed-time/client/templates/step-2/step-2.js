@@ -46,6 +46,6 @@ Template['step-2'].events({
     Meteor.call("register", param, function(e, r){
 
     });
-    location.href="/step-3"
+    location.href="/step-1"
  },
 })

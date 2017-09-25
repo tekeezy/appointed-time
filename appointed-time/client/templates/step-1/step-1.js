@@ -8,6 +8,13 @@ import { Groups } from '../../../imports/collections.js'
 
 Template['step-1'].helpers({
   list : function() {
-    return Groups.find();
+    return Groups.find({"member.member_id" : Meteor.userId()});
   }
 });
+
+Template['step-1'].events({
+  'click .moim'(event) {
+    var temp = this;
+    location.href = "/step-3/" + this._id;
+  }
+})
