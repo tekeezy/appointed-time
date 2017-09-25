@@ -60,8 +60,8 @@ Template['step-3'].helpers({
 Template['step-3'].events({
     "submit form": function (event) {
       Meteor.call("arrival", Meteor.userId(), new Date(), function(e, r){
-
+        location.href="/step-4";
       });
-      location.href="/step-3";
+
     }
 });

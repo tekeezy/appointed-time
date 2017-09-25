@@ -19,12 +19,9 @@ Meteor.methods( {
     // Tasks.update(this._id, {
     //   $set: { checked: ! this.checked },
     // });
-    console.log(_id);
-    console.log(date);
-    // Groups.updateOne(
-    //   {"member.member_id":_id},
-    //   {$set : {"member.arrival" : date}},
-    // )
+    Groups.update(
+      {"member.member_id":_id},
+      {$set:{"member.$.arrival":date.toLocaleString(), "member.$.attendance": true}})
   },
 });
 

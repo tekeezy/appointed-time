@@ -1,19 +1,18 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
-import './accounts-config.js';
 
 // Groups = new Mongo.Collection('groups');
 //
 // Meteor.subscribe('groups');
 
-Template.step2.helpers({
+Template['step-2'].helpers({
   friends : function() {
     return Meteor.users.find({ "_id": { $ne: Meteor.user()._id}});
   }
 });
 
-Template.step2.events({
+Template['step-2'].events({
   "submit form": function (event) {
     event.preventDefault();
 
@@ -50,17 +49,3 @@ Template.step2.events({
     location.href="/step-3"
  },
 })
-
-
-// Template.hello.helpers({
-//   counter() {
-//     return Template.instance().counter.get();
-//   },
-// });
-//
-// Template.hello.events({
-//   'click button'(event, instance) {
-//     // increment the counter when button is clicked
-//     instance.counter.set(instance.counter.get() + 1);
-//   },
-// });

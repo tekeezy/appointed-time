@@ -71,7 +71,7 @@ UserRoutes.route('/step-2', {
   action: function () {
     console.log("router.js: UserRoutes.route /step-2: action");
     console.log("router.js: UserRoutes.route /step-2: User: " + Meteor.user());
-    BlazeLayout.render('step2');
+    BlazeLayout.render('step-2');
   }
 });
 
@@ -89,11 +89,6 @@ UserRoutes.route('/step-4', {
     console.log("router.js: UserRoutes.route /step-4: User: " + Meteor.user());
     BlazeLayout.render('step-4');
   }
-});
-FlowRouter.route('/333', {
-    action: function () {
-        BlazeLayout.render('333');
-    }
 });
 
 // FlowRouter.route('/', {

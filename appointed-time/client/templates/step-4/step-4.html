@@ -13,14 +13,14 @@
           </tr>
         </thead>
         <tbody style="text-align: left;">
+          {{#each results}}
           <tr style="color:#f00">
-            {{#each results}}
-            <td>박경식</td>
-            <td>12-3456-7890</td>
-            <td>13시 30분</td>
-            <td>당신의 정신상태는?</td>
-            {{/each}}
+            <td>{{username}}</td>
+            <td>{{temp}}</td>
+            <td>{{arrival}}</td>
+            <td>{{comment}}</td>
           </tr>
+          {{/each}}
         </tbody>
       </table>
     </div>
