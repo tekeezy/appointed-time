@@ -28,3 +28,5 @@ google-config-ui
 kadira:flow-router
 kadira:blaze-layout
 session
+http
+momentjs:moment

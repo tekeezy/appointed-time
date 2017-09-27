@@ -17,47 +17,9 @@
   <body style="text-align: center;">
     <div style="padding: 240px">
       <div style="padding: 64px 0;">
-        <h1>테스트</h1>
+        <h1>지각하지마</h1>
       </div>
       {{> loginButtons}}
     </div>
   </body>
-</template>
-
-<template name="step2">
-       {{> loginButtons}}
-    <body>
-      <form class="regist">
-        <div>
-          모임 이름 <input type="text" name="title"/>
-        </div>
-        <table>
-          <thead>
-            <td>이름</td><td>계좌</td><td></td>
-          </thead>
-          <tbody>
-            {{#each friends}}
-            <tr>
-              <td>{{username}}</td>
-              <td>계좌번호</td>
-              <td><input type="checkbox" name="regMember" value="{{_id}}"/></td>
-            </tr>
-            {{/each}}
-          </tbody>
-        </table>
-        <div style="padding: 24px 0">
-          <div class="form-group row">
-            <label for="appointTime" class="col-sm-2 col-form-label" style="line-height: 40px; padding-top: 0; padding-bottom: 0; font-weight: bold;">약속 시간</label>
-            <div class="col-sm-10">
-              <input type="datetime-local" name="regTime" class="form-control-plaintext" id="appointTime" value="" style="width: 100%; height: 40px;">
-            </div>
-          </div>
-        </div>
-        <button>등록</button>
-      </form>
-    </body>
-</template>
-
-<template name="333">
-  ririri
 </template>

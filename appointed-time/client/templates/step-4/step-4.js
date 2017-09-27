@@ -29,7 +29,7 @@ Template["step-4"].helpers({
             param.comment = "굳잡!";
           } else {
             param.arrival = "아직 도착 ㄴㄴ";
-            param.comment = "당신의 정신상태는?";
+            param.comment = "벌금 당첨";
           }
         }
       })

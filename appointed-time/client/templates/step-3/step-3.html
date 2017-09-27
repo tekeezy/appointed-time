@@ -1,5 +1,5 @@
 <template name="step-3">
-  {{test}}
+  {{> loginButtons}}
   <div style="text-align: center; padding: 96px 0;">
     <div style="font-size: 48px;">지각까지 남은 시간</div>
     <div style="padding: 24px 0; font-size: 128px;">{{time}}</div>
@@ -7,6 +7,9 @@
       <form>
       <button id="next">도착했어요!</button>
       </form>
+    </div>
+    <div>
+      <a href="/step-1" class="button-style" id="next">뒤로</a>
     </div>
   </div>
 </template>

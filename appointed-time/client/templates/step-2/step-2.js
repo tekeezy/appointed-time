@@ -13,6 +13,9 @@ Template['step-2'].helpers({
 });
 
 Template['step-2'].events({
+  "click #back": function(event) {
+    location.href="/step-1";
+  },
   "submit form": function (event) {
     event.preventDefault();
 
@@ -46,6 +49,10 @@ Template['step-2'].events({
     Meteor.call("register", param, function(e, r){
 
     });
-    location.href="/step-1"
+    Meteor.call("getWithdraw", members, function(e, r) {
+
+        location.href="/step-1"
+
+    });
  },
 })
